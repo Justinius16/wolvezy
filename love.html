@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>I Love You 💘</title>
+        <style>
+          body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(#ffe4e6, #fbcfe8);
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+          }
+      
+          .message {
+            font-size: 6vw;
+            color: #be185d;
+            margin-bottom: 5vh;
+            animation: fadeIn 2s ease-in forwards;
+            opacity: 0;
+          }
+      
+          @keyframes fadeIn {
+            to {
+              opacity: 1;
+            }
+          }
+      
+          .flower-container {
+            width: 60vw;
+            max-width: 300px;
+            transform: translateY(100%) scale(0.3);
+            opacity: 0;
+            animation: grow 2.5s ease-out forwards;
+          }
+      
+          @keyframes grow {
+            to {
+              transform: translateY(0) scale(1);
+              opacity: 1;
+            }
+          }
+      
+          img {
+            width: 100%;
+            height: auto;
+          }
+      
+          audio {
+            display: none;
+          }
+      
+          @media (max-width: 600px) {
+            .message {
+              font-size: 8vw;
+            }
+      
+            .flower-container {
+              width: 80vw;
+            }
+          }
+        </style>
+    </head>
+    <body>
+    <div class="message">I LOVE U</div>
+
+    <div class="flower-container">
+        <img src="flower2.png" alt="flower" width="300" />
+    </div>
+
+    <audio autoplay loop preload>
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    </body>
+</html>
