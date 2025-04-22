@@ -9,41 +9,44 @@
       margin: 0;
       padding: 0;
       background: linear-gradient(#ffe4e6, #fbcfe8);
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Satisfy', cursive;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
       text-align: center;
       overflow: hidden;
+      position: relative;
     }
 
-    .message {
-      font-size: 6vw;
-      color: #be185d;
-      margin-bottom: 5vh;
-      animation: fadeIn 2s ease-in forwards;
-      opacity: 0;
+    /* 🎀 Frame My Melody */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('mymelody.png') no-repeat center center;
+      background-size: cover; /* Mengubah background size menjadi cover untuk memenuhi layar */
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.7;
     }
 
-    @keyframes fadeIn {
+    .logo-container {
+      width: 50vw; /* Gedean dikit */
+      max-width: 250px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      transform: translateZ(-1000px) scale(0.3);
+      animation: zoomIn 2.5s ease-out forwards;
+    }
+
+    @keyframes zoomIn {
       to {
-        opacity: 1;
-      }
-    }
-
-    .flower-container {
-      width: 60vw;
-      max-width: 300px;
-      transform: translateY(100%) scale(0.3);
-      opacity: 0;
-      animation: grow 2.5s ease-out forwards;
-    }
-
-    @keyframes grow {
-      to {
-        transform: translateY(0) scale(1);
+        transform: translateZ(0) scale(1);
         opacity: 1;
       }
     }
@@ -51,6 +54,55 @@
     img {
       width: 100%;
       height: auto;
+      object-fit: contain;
+    }
+
+    h2 {
+      color: #ff69b4;
+      font-size: 4vw;
+      margin: 15px 0 10px;
+      -webkit-text-stroke: 1.5px white;
+      text-shadow:
+        -1px -1px 0 white,
+         1px -1px 0 white,
+        -1px  1px 0 white,
+         1px  1px 0 white;
+    }
+
+    input[type="date"] {
+      font-size: 1.2rem;
+      padding: 10px;
+      border: 2px solid #ff69b4;
+      background-color: #ffe4e6;
+      color: #ff69b4;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    input[type="date"]:focus {
+      outline: none;
+      border-color: #f39ac1;
+    }
+
+    button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #f39ac1;
+    }
+
+    .error {
+      color: #e11d48;
+      font-size: 1rem;
+      margin-top: 10px;
     }
 
     audio {
@@ -58,34 +110,52 @@
     }
 
     @media (max-width: 600px) {
-      .message {
-        font-size: 8vw;
+      .logo-container {
+        width: 60vw;
+        max-width: 200px;
       }
 
-      .flower-container {
-        width: 80vw;
+      h2 {
+        font-size: 6vw;
       }
     }
   </style>
 </head>
 <body>
-  <h2>Masukin tanggal jadian kita ya 💘</h2>
+  <div class="logo-container">
+    <img src="nanat.png" alt="logo" />
+  </div>
+
+  <h2>Enter Our Anniversary Date Bbg</h2>
+
   <input type="date" id="dateInput" />
-  <button onclick="checkDate()">Masuk</button>
+  <button onclick="checkDate()">Pencet Aku Kak</button>
   <div id="error" class="error"></div>
+
+  <!-- 🎵 AUDIO -->
+  <audio id="bg-music" autoplay loop muted>
+    <source src="Rizz.mp3" type="audio/mpeg">
+    Your browser doesn't support the audio element.
+  </audio>
 
   <script>
     function checkDate() {
-      const correctDate = "2024-01-04";
+      const correctDate = "2025-03-22";
       const input = document.getElementById("dateInput").value;
       const errorDiv = document.getElementById("error");
 
       if (input === correctDate) {
         window.location.href = "love.html";
       } else {
-        errorDiv.textContent = "Ihh salah... inget-inget lagi dong 😘";
+        errorDiv.textContent = "Inget yang bener kocak😤";
       }
     }
+
+    window.addEventListener('click', function() {
+      var audio = document.getElementById('bg-music');
+      audio.muted = false;
+      audio.play();
+    });
   </script>
 </body>
 </html>

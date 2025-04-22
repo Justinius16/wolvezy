@@ -17,6 +17,8 @@
             flex-direction: column;
             text-align: center;
             overflow: hidden;
+            font-family: 'Allura', cursive;
+            outline-color: #be185d;
           }
       
           .message {
@@ -69,15 +71,32 @@
         </style>
     </head>
     <body>
-    <div class="message">I LOVE U</div>
-
+    <div class="message">Happy Birthday Sayang :></div>
+    <style>
+      body {
+          background-color: #111;
+      }
+      
+      .message {
+          font-size: 48px;
+          color: #ff99cc;
+          text-align: center;
+          margin-top: 100px;
+      
+          -webkit-text-stroke: 1.5px #ffffff;
+          text-shadow:
+              0 0 5px #ff99cc,
+              0 0 10px #ff99cc,
+              0 0 15px #ff66cc;
+      }
+      </style>
     <div class="flower-container">
-        <img src="flower2.png" alt="flower" width="300" />
+        <img src="cute lily.webp" alt="flower" width="300" />
     </div>
 
-    <audio autoplay loop preload>
+    <button onclick="document.getElementById('bgm').play()">Musikkk😜
+    </button>
+    <audio id="bgm" loop preload>
         <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    </body>
-</html>
